@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>港の浮き釣りプロトタイプ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="phone" aria-label="2Dスマホ釣りゲーム">
+      <header class="hud hud-top">
+        <div class="tackle-panel" aria-label="仕掛け情報">
+          <span>仕掛け情報</span>
+          <strong>ウキ釣り仕掛け</strong>
+          <small>オモリ：B　ハリス：1.5号</small>
+        </div>
+        <div class="status-panel">
+          <strong id="stateText">待機中</strong>
+        </div>
+        <button id="soundToggle" class="sound-toggle" type="button" aria-label="波音を切り替え" aria-pressed="true">波音 ON</button>
+      </header>
+
+      <div class="stage-wrap">
+        <canvas id="gameCanvas" width="390" height="690" aria-label="港の釣り画面"></canvas>
+        <div id="tensionWrap" class="tension-wrap" aria-label="テンションゲージ">
+          <span>危険</span>
+          <div class="tension-track">
+            <i id="tensionFill"></i>
+            <b class="safe-zone"></b>
+          </div>
+          <span>安全</span>
+        </div>
+        <div id="toast" class="toast" aria-live="polite"></div>
+        <article id="resultCard" class="result-card" hidden>
+          <span id="resultTitle">釣れた！</span>
+          <strong id="resultFish">アジ</strong>
+          <p id="resultSize">23.4cm</p>
+          <p id="resultCoin">+38コイン</p>
+          <canvas id="resultFishArt" width="300" height="160" aria-hidden="true"></canvas>
+          <button id="resultOkButton" type="button">OK</button>
+        </article>
+      </div>
+
+      <footer class="hud hud-bottom">
+        <div id="fightReadout" class="fight-readout">
+          <span>距離 <strong id="distanceText">--m</strong></span>
+          <span>テンション <strong id="tensionText">0%</strong></span>
+        </div>
+        <button id="actionButton" class="action-button" type="button">投げる</button>
+      </footer>
+    </section>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
